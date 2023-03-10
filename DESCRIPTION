@@ -1,0 +1,24 @@
+Package: hurricanesotr
+Title: Plots Single Observation Time Dataset for single Storm
+Version: 0.0.0.9000
+Authors@R: 
+    person("Hugo", "Nomanyon", , "hugostar84@gmail.com", role = c("aut", "cre"),
+           comment = c(ORCID = "YOUR-ORCID-ID"))
+Description: This package provides stat, geom and other functions to help create 
+   and plot a single observation time dataset of a single storm. It relies on 
+   storms data in the Extended Best Tract dataset as database. An url will be 
+   provided to download this dataset.
+License: AGPL (>= 3)
+Encoding: UTF-8
+Roxygen: list(markdown = TRUE)
+RoxygenNote: 7.2.3
+Suggests: 
+    testthat (>= 3.0.0)
+Config/testthat/edition: 3
+Imports: 
+    dplyr,
+    geosphere,
+    ggplot2
+Depends: 
+    R (>= 2.10)
+LazyData: true
