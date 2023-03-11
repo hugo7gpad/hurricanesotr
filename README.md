@@ -153,3 +153,46 @@ base_map +
 ```
 
 <img src="man/figures/README-basemap_plot-1.png" width="100%" />
+
+Now, we can you use the scale_radii parameter to plot the wind radii
+only at 50%
+
+``` r
+
+# scale_radii = 0.5
+ base_map +
+  geom_hurricane(data = ike, ggplot2::aes(x = longitude, y = latitude, r_ne = ne, r_nw = nw, 
+                                          r_sw = sw, r_se = se, fill = wind_speed,
+                                          colour = wind_speed), scale_radii = 0.5, np = 250) +
+  ggplot2::scale_colour_manual(name = "Wind speed (kts)", values = c("red", "orange",'yellow')) +
+  ggplot2::scale_fill_manual(name = "Wind speed (kts)", values = c("red", "orange", 'yellow'))
+```
+
+<img src="man/figures/README-scaling-1.png" width="100%" />
+
+Let’s compare this last plot to the plot with default value for
+scale_radii, 1.
+
+``` r
+# Default: scale_radii = 1
+defaultScaleRadii_1 <- base_map +
+  geom_hurricane(data = ike, ggplot2::aes(x = longitude, y = latitude, r_ne = ne, r_nw = nw, r_sw = sw,
+                                              r_se = se, fill = wind_speed, colour = wind_speed),
+                 scale_radii = 1, np = 250) +
+  ggplot2::scale_colour_manual(name = "Wind speed (kts)", values = c("red", "orange", 'yellow')) +
+  ggplot2::scale_fill_manual(name = "Wind speed (kts)", values = c("red", "orange", 'yellow')) +
+  labs(title = "scale_radii = 1")
+
+# scale_radii = 0.5
+scaleRadii_0.5 <- base_map +
+  geom_hurricane(data = ike, ggplot2::aes(x = longitude, y = latitude, r_ne = ne, r_nw = nw, r_sw = sw,
+                                              r_se = se, fill = wind_speed, colour = wind_speed),
+                 scale_radii = 0.5, np = 250) +
+  ggplot2::scale_colour_manual(name = "Wind speed (kts)", values = c("red", "orange", 'yellow')) +
+  ggplot2::scale_fill_manual(name = "Wind speed (kts)", values = c("red", "orange", 'yellow')) +
+  labs(title = "scale_radii = 0.5")
+
+gridExtra::grid.arrange(defaultScaleRadii_1, scaleRadii_0.5, ncol = 2)
+```
+
+<img src="man/figures/README-compare-1.png" width="100%" />
