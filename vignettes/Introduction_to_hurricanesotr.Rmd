@@ -64,8 +64,8 @@ Let's add this wind radii to a base map of Louisiana
 
 ```{r example3}
 library(ggmap)
-map_data <- get_map("Louisiana", zoom = 6, maptype = "toner-background")
-base_map <- ggmap(map_data, extent = "device")
+map_data <- ggmap::get_map("Louisiana", zoom = 6, maptype = "toner-background")
+base_map <- ggmap::ggmap(map_data, extent = "device")
 
 base_map +
   geom_hurricane(data = katrina, ggplot2::aes(x = longitude, y = latitude, r_ne = ne, r_nw = nw,                                                  r_sw = sw, r_se = se, fill = wind_speed,
@@ -77,7 +77,7 @@ base_map +
 Now, we can you use the scale_radii parameter to plot the wind radii only at 50%
 
 ```{r example4}
- 
+ library(gridExtra)
 # Default: scale_radii = 1
 defaultScaleRadii_1 <- base_map +
   geom_hurricane(data = katrina, ggplot2::aes(x = longitude, y = latitude, r_ne = ne, r_nw = nw,                                                  r_sw = sw, r_se = se, fill = wind_speed,
