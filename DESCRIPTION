@@ -20,9 +20,7 @@ Config/testthat/edition: 3
 Imports: 
     dplyr,
     geosphere,
-    ggmap,
-    ggplot2,
-    gridExtra
+    ggplot2
 Depends: 
     R (>= 2.10)
 LazyData: true
