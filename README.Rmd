@@ -134,6 +134,7 @@ Now, we can you use the scale_radii parameter to plot the wind radii only at 50%
 Let's compare this last plot to the plot with default value for scale_radii, 1.
 
 ```{r compare}
+library(gridExtra)
 # Default: scale_radii = 1
 defaultScaleRadii_1 <- base_map +
   geom_hurricane(data = ike, ggplot2::aes(x = longitude, y = latitude, r_ne = ne, r_nw = nw, r_sw = sw,
