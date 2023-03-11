@@ -125,8 +125,17 @@ ggplot2::ggplot(data = ike) +
 
 <img src="man/figures/README-plotting-1.png" width="100%" />
 
-You can also save the plot of wind radii for IKE:
+You can also save the plots of wind radii for IKE:
 
+    #> png 
+    #>   2
+    #> Loading required package: ggplot2
+    #> ℹ Google's Terms of Service: <]8;;https://mapsplatform.google.comhttps://mapsplatform.google.com]8;;>
+    #> ℹ Please cite ggmap if you use it! Use `citation("ggmap")` for details.
+    #> ! `maptype = "toner-background"` is only available with `source = "stamen"`; resetting source.
+    #> ℹ <]8;;https://maps.googleapis.com/maps/api/staticmap?center=Galveston&zoom=6&size=640x640&scale=2&maptype=terrain&key=xxxhttps://maps.googleapis.com/maps/api/staticmap?center=Galveston&zoom=6&size=640x640&scale=2&maptype=terrain&key=xxx]8;;>
+    #> ℹ <]8;;https://maps.googleapis.com/maps/api/geocode/json?address=Galveston&key=xxxhttps://maps.googleapis.com/maps/api/geocode/json?address=Galveston&key=xxx]8;;>
+    #> ℹ Map tiles by Stamen Design, under CC BY 3.0. Data by OpenStreetMap, under ODbL.
     #> png 
     #>   2
 
@@ -134,9 +143,6 @@ You can also add that plot to a base map
 
 ``` r
 library(ggmap)
-#> Loading required package: ggplot2
-#> ℹ Google's Terms of Service: <]8;;https://mapsplatform.google.comhttps://mapsplatform.google.com]8;;>
-#> ℹ Please cite ggmap if you use it! Use `citation("ggmap")` for details.
 map_data <- get_map("Galveston", zoom = 6, maptype = "toner-background")
 #> ! `maptype = "toner-background"` is only available with `source = "stamen"`; resetting source.
 #> ℹ <]8;;https://maps.googleapis.com/maps/api/staticmap?center=Galveston&zoom=6&size=640x640&scale=2&maptype=terrain&key=xxxhttps://maps.googleapis.com/maps/api/staticmap?center=Galveston&zoom=6&size=640x640&scale=2&maptype=terrain&key=xxx]8;;>
@@ -174,6 +180,12 @@ Let’s compare this last plot to the plot with default value for
 scale_radii, 1.
 
 ``` r
+library(gridExtra)
+#> 
+#> Attaching package: 'gridExtra'
+#> The following object is masked from 'package:dplyr':
+#> 
+#>     combine
 # Default: scale_radii = 1
 defaultScaleRadii_1 <- base_map +
   geom_hurricane(data = ike, ggplot2::aes(x = longitude, y = latitude, r_ne = ne, r_nw = nw, r_sw = sw,

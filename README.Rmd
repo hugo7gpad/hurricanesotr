@@ -87,7 +87,7 @@ ggplot2::ggplot(data = ike) +
 ```
 
 
-You can also save the plot of wind radii for IKE:
+You can also save the plots of wind radii for IKE:
 
 ```{r ike_wind_radii, echo = FALSE}
 # Save IKE wind radii as pdf
@@ -98,8 +98,21 @@ ggplot2::ggplot(data = ike) +
                  scale_radii = 1, np = 250) +
   ggplot2::scale_colour_manual(name = "Wind speed (kts)", values = c("red", "orange", 'yellow')) +
   ggplot2::scale_fill_manual(name = "Wind speed (kts)", values = c("red", "orange", 'yellow'))
-
 dev.off()
+
+pdf("ike_bm_wind_radii")
+library(ggmap)
+map_data <- get_map("Galveston", zoom = 6, maptype = "toner-background")
+base_map <- ggmap(map_data, extent = "device")
+
+base_map +
+  geom_hurricane(data = ike, ggplot2::aes(x = longitude, y = latitude, r_ne = ne, r_nw = nw, r_sw = sw,
+                                              r_se = se, fill = wind_speed, colour = wind_speed),
+                 scale_radii = 1, np = 250) +
+  ggplot2::scale_colour_manual(name = "Wind speed (kts)", values = c("red", "orange", 'yellow')) +
+  ggplot2::scale_fill_manual(name = "Wind speed (kts)", values = c("red", "orange", 'yellow'))
+dev.off()
+
 ```
 
 You can also add that plot to a base map 
