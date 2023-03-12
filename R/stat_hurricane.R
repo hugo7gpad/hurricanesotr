@@ -41,6 +41,13 @@ stat_hurricane <- function(mapping = NULL, data = NULL, geom = "hurricane",
 #' @usage NULL
 #' @keywords internal
 #' @export
+#'
+#' @param x, numeric longitude of storm center
+#' @param y, numeric latitude of storm center
+#' @param r_ne numeric radii in north-east quadrant
+#' @param r_nw numeric radii in north-west quadrant
+#' @param r_se numeric radii in south-east quadrant
+#' @param r_sw numeric radii in south-west quadrant
 StatHurricane <- ggplot2::ggproto("StatHurricane", ggplot2::Stat,
                          required_aes = c("x", "y", "r_ne", "r_nw", "r_se", "r_sw"),
                          compute_group = function(data, scales, params,

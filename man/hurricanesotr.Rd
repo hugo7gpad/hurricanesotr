@@ -4,6 +4,19 @@
 \name{StatHurricane}
 \alias{StatHurricane}
 \title{StatHurricane}
+\arguments{
+\item{x, }{numeric longitude of storm center}
+
+\item{y, }{numeric latitude of storm center}
+
+\item{r_ne}{numeric radii in north-east quadrant}
+
+\item{r_nw}{numeric radii in north-west quadrant}
+
+\item{r_se}{numeric radii in south-east quadrant}
+
+\item{r_sw}{numeric radii in south-west quadrant}
+}
 \description{
 StatHurricane
 }

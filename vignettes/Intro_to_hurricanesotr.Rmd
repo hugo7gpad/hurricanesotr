@@ -1,22 +1,24 @@
 ---
-output: github_document
+title: "Intro_to_hurricanesotr"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{Intro_to_hurricanesotr}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
 ---
-
-<!-- README.md is generated from README.Rmd. Please edit that file -->
 
 ```{r, include = FALSE}
 knitr::opts_chunk$set(
   collapse = TRUE,
-  comment = "#>",
-  fig.path = "man/figures/README-",
-  out.width = "100%"
+  comment = "#>"
 )
 ```
 
-# hurricanesotr
+```{r setup}
+library(hurricanesotr)
+```
 
-<!-- badges: start -->
-<!-- badges: end -->
+
 
 The goal of hurricanesotr is to provide tools to manipulate  hurricanes data. If given a database of recorded hurricanes, the hurricanesotr package helps produce a single 
 observation time dataset for any single storm in the database. It is done by supplying to 
