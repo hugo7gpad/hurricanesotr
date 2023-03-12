@@ -172,7 +172,7 @@ gridExtra::grid.arrange(defaultScaleRadii_1, scaleRadii_0.5, ncol = 2)
 
 All plots
 
-```{r echo=FALSE}
+```{r all_plots, echo=FALSE}
 pdf("ike_wind_radii_plots")
 ggplot2::ggplot(data = ike) +
   geom_hurricane(ggplot2::aes(x = longitude, y = latitude, r_ne = ne, r_nw = nw, r_sw = sw,
