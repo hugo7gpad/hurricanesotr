@@ -220,9 +220,11 @@ ggplot2::ggplot(data = ike) +
   ggplot2::scale_colour_manual(name = "Wind speed (kts)", values = c("red", "orange", 'yellow')) +
   ggplot2::scale_fill_manual(name = "Wind speed (kts)", values = c("red", "orange", 'yellow'))
 
-ggplot2::ggplot(data = ike) +
-  geom_hurricane(ggplot2::aes(x = longitude, y = latitude, r_ne = ne, r_nw = nw, r_sw = sw,
-                              r_se = se, fill = wind_speed, colour = wind_speed),
+base_map +
+  geom_hurricane(data = ike, ggplot2::aes(x = longitude, y = latitude, r_ne = ne, 
+                                          r_nw = nw, r_sw = sw,
+                                          r_se = se, fill = wind_speed,
+                                          colour = wind_speed),
                  scale_radii = 1, np = 250) +
   ggplot2::scale_colour_manual(name = "Wind speed (kts)", values = c("red", "orange", 'yellow')) +
   ggplot2::scale_fill_manual(name = "Wind speed (kts)", values = c("red", "orange", 'yellow'))
